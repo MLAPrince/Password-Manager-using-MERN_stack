@@ -7,12 +7,12 @@ const NoCredFound = () => {
       <div className="bg-primary/10 rounded-full p-8">
         <NotebookIcon className="size-10  text-lime-700" />
       </div>
-      <h3 className="text-2xl font-bold">No notes yet</h3>
+      <h3 className="text-2xl font-bold">No Credentials yet</h3>
       <p className="text-base-content/70">
-        Ready to organize your thoughts? Create your first note to get started on your journey.
+        Ready to organize your Credentials? Create your first Credential to get started on your journey.
       </p>
-      <Link to="/create" className="btn btn-primary bg-lime-700 border-lime-700">
-        Create Your First Note
+      <Link to="/create" className="btn text-black bg-lime-600 border-lime-700 shadow-lg hover:shadow-lime-700">
+        Create Your First Credential
       </Link>
     </div>
   );

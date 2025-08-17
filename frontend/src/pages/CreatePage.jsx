@@ -6,6 +6,7 @@ import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import api from '../lib/axios';
 import toast from 'react-hot-toast';
 import zxcvbn from 'zxcvbn';
+import RateLimitedUI from '../components/RateLimitedUI';
 
 // ✅ Reusable Input Component
 const FormInput = ({ label, type = 'text', value, onChange, placeholder, ...props }) => (
@@ -31,6 +32,7 @@ const Manager = () => {
   const [loading, setLoading] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [lastActionTime, setLastActionTime] = useState(0);
+  const [isRateLimited, setisRateLimited] = useState(false);
 
   const { id } = useParams();
   const location = useLocation();
@@ -132,7 +134,7 @@ const Manager = () => {
   // ✅ Handle create/update
   const handleSubmitCredential = async (e) => {
     e.preventDefault();
-
+    
     if (Date.now() - lastActionTime < 5000) {
       toast.error('Too many requests! Please wait a moment.');
       return;
@@ -159,6 +161,7 @@ const Manager = () => {
       console.log(isEditMode ? 'Error updating credential' : 'Error creating credential', error);
       if (error.response?.status === 429) {
         toast.error('Too many requests! Please wait for a while.');
+        setisRateLimited(true);
       } else {
         toast.error(isEditMode ? 'Failed to update credential' : 'Failed to create credential');
       }
@@ -176,10 +179,10 @@ const Manager = () => {
             {isEditMode ? 'Edit Credential' : 'Centralized Credential Management'}
           </h1>
 
-          {/* Main Card */}
-          <form
+         
+          {isRateLimited ? <RateLimitedUI/> : <form
             onSubmit={handleSubmitCredential}
-            className="bg-gray-800/50 px-8 py-6 flex flex-col gap-5 mt-10 mx-auto w-full max-w-md rounded-2xl shadow-lg"
+            className="bg-gray-800/50 mb-10 px-8 py-6 flex flex-col gap-5 mt-10 mx-auto w-full max-w-md rounded-2xl shadow-lg"
           >
             <FormInput label="Title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter title" />
             <FormInput label="Website" value={websiteURL} onChange={(e) => setWebsiteURL(e.target.value)} placeholder="https://" />
@@ -240,7 +243,7 @@ const Manager = () => {
                 {loading ? 'Processing...' : isEditMode ? 'Update Credential' : 'Add Credentials'}
               </button>
             </div>
-          </form>
+          </form>}
         </div>
       </div>
       <Footer />

@@ -6,7 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar'
 import CreatePage from './pages/CreatePage'
 import PasswordsPage from './pages/PasswordsPage'
-// import AboutPage from './pages/AboutPage'
+import AboutPage from './pages/AboutPage'
 import Footer from './components/Footer';
 
 
@@ -19,7 +19,7 @@ const App = () => {
           <Route path="/" element={<CreatePage />} />
           <Route path="/:id" element={<CreatePage />} />
           <Route path="/passwords" element={<PasswordsPage />} />
-          {/* <Route path="/about" element={<AboutPage />} /> */}
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </main>
       <Toaster />

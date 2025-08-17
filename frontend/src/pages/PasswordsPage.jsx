@@ -126,7 +126,7 @@ const PasswordsPage = () => {
             Stored Credentials
           </h1>
           <div className="flex justify-center mt-2 mb-6">
-            <span className="inline-block h-1 bg-lime-400 w-48 rounded-full" />
+            <span className="inline-block h-1 bg-lime-400 w-md rounded-full" />
           </div>
           <p className="text-center text-gray-300 mb-6">
             View, edit, and manage your saved credentials.
