@@ -9,7 +9,7 @@ import api from "../lib/axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const PAGE_SIZE = 8;
+const PAGE_SIZE = 25;
 
 const PasswordsPage = () => {
   const [allData, setAllData] = useState([]);
@@ -116,7 +116,7 @@ const PasswordsPage = () => {
   const goNext = () => setPage((p) => Math.min(totalPages, p + 1));
 
   return (
-    <div className="relative min-h-screen flex flex-col bg-black">
+    <div className="relative h-full flex flex-col bg-black">
       <Navbar />
 
       <main className="flex-1">
@@ -197,7 +197,9 @@ const PasswordsPage = () => {
         </div>
       </main>
 
-      <Footer />
+      <div className="mt-6">
+        <Footer />
+      </div>
 
       {/* DaisyUI Delete Modal */}
       <div className={`modal ${deleteOpen ? "modal-open" : ""}`}>

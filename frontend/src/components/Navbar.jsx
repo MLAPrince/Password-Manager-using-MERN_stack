@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
-import { KeyRound } from "lucide-react";
+import { KeyRound, Key } from "lucide-react";
 
 const Navbar = () => {
     const navLinkClass = ({ isActive }) =>
@@ -20,6 +20,7 @@ const Navbar = () => {
                 className="flex items-center justify-center gap-2 text-4xl sm:text-5xl lg:text-6xl font-extrabold"
             >
                 <NavLink to="/" className="flex items-center justify-center gap-2 text-4xl sm:text-5xl font-extrabold">
+                <Key size={48} className="text-[rgb(201,212,38)]" />
                     <span className="italic -skew-x-6 text-white">MLA</span>
                     <span className="text-lime-400 skew-x-6">Pass</span>
                 </NavLink>

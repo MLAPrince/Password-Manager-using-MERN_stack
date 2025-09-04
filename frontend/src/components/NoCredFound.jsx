@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const NoCredFound = () => {
   return (
-    <div className="flex flex-col items-center justify-center py-16 space-y-6 max-w-md mx-auto text-center">
+    <div className="mb-6 flex flex-col items-center justify-center py-16 space-y-6 max-w-md mx-auto text-center">
       <div className="bg-primary/10 rounded-full p-8">
         <NotebookIcon className="size-10  text-lime-700" />
       </div>

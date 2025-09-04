@@ -16,12 +16,11 @@ const PORT = process.env.PORT || 5001;
 app.use(express.json());
 app.use(rateLimiter);
 
-// Enable CORS only in development
-if (process.env.NODE_ENV !== "production") {
-  app.use(cors({
-    origin: "http://localhost:5173", // your frontend
-  }));
-}
+// Enable CORS for frontend
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  credentials: true,
+}));
 
 // Routes
 app.use("/api/credentials", credentialRoutes);
