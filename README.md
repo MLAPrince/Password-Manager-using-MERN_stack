@@ -1,6 +1,6 @@
 # MLA Pass - Your Secure Password Manager
 ### Live Link : https://mlapass.vercel.app
-### Note : Storing credentials on my live link is not secure because mongoDB is setted up to access from anywhere. For secure credentials storage you need to connect your own mongoDB URI as this app is just for personal credentials storage
+### Note : Storing credentials on my live link is not secure because mongoDB is setted up to access from anywhere. For secure credentials storage you need to connect your own mongoDB URI as this app is just for personal credentials storage or wait for the authentication to get implemented. I will make it near future.
 
 ![MLA Pass Screenshot](frontend/public/MLA%20Pass%201.jpg)
 
